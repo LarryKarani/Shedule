@@ -1,18 +1,24 @@
 import { Disclosure } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import AddDoctor from '../../pages/AddDoctor';
+import Doctors from '../../pages/Doctors';
+import Events from '../../pages/Events';
+import CTA from '../CTA';
+
 
 const navigation = [
-  { name: 'Calendar', href: '/', current: true },
+  { name: 'Events', href: '/', current: true },
   { name: 'Doctors', href: '/doctors', current: false },
 ];
-
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Example() {
+export default function Layout() {
+
+
   return (
     <>
       <div className='min-h-full'>
@@ -84,11 +90,13 @@ export default function Example() {
         <div className='py-10'>
           <main>
             <div className='max-w-7xl mx-auto sm:px-6 lg:px-8'>
-             <BrowserRouter>
-               <Routes>
-                 
-               </Routes>
-             </BrowserRouter>
+              <CTA/>
+                <Routes>
+                  <Route path='/' element={<Events />} />
+                  <Route path='/doctors' element={<Doctors />} />
+                  <Route path='/add-doctor' element={<AddDoctor />} />
+                  <Route path='/add-event' element={<AddDoctor />} />
+                </Routes>
             </div>
           </main>
         </div>

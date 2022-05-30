@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import Button from '../../Button';
-import Input from '../input';
+import Button from '../Button';
+import Input from '../input/input';
 
-type Field = {
+export type Field = {
 
     label: string
     name: string
@@ -17,7 +17,7 @@ type Field = {
 
 interface FormProps {
   title: string;
-  fields: [Field];
+  fields: Field[];
   buttonText: string;
   onSubmit: (data: any) => void
 }
@@ -35,8 +35,8 @@ const {
 } = useForm<any>({ mode: 'onChange', reValidateMode: 'onChange' });
 
   return (
-    <div className='mx-auto p-4'>
-      <h3 className='text-white font-normal leading-none text-3xl md:text-5xl'>
+    <div className='mx-auto p-4 md:w-1/2 '>
+      <h3 className='font-normal leading-none text-3xl md:text-5xl mb-4'>
         {title}
       </h3>
 
